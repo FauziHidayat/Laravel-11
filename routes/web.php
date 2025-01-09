@@ -23,11 +23,9 @@ Route::get('/posts', function () {
     return view('posts', ['title' => 'Blog', 'posts' => Post::all()]);
 });
 
+//find data
+Route::get('/posts/{post:slug}', function (Post $post) {
 
-//kirim data berdasarkan slug 
-Route::get('/posts/{slug}', function ($slug) {
-
-    $post = Post::find($slug);
 
     return view('post', ['title' => 'Single Post', 'post' => $post]);
 });
